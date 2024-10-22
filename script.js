@@ -93,10 +93,10 @@ const submit = (e) => {
   // If all validations are passed, it is a success.
   errorMessage.textContent = "Form added successfully";
   
-  // Restart the page after 5 seconds.
+  // Restart the page after 25 seconds.
   setTimeout(() => {
     window.location.reload();
-  }, 5000);
+  }, 25000);
 };
 
 // Listen the submit event from the form.
