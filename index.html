@@ -1,27 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Sign-up form</title>
-</head>
-<body>
-    <div class="left-image">
-        <img src="images/charles-pickrell-ncLZEMugCHo-unsplash.jpg" class="left">
-        <!--<img src="images/odin-lined.png" class="logo"> -->
-        <p class="credit"> Photo of <a href="https://unsplash.com/es/@charleypick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Charles Pickrell</a> at <a href="https://unsplash.com/es/fotos/pared-de-ladrillo-marron-con-agua-ncLZEMugCHo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="img">
+      <div class="img-logo">
+        <img src="images/odin-lined.png" alt="Odin Logo" class="odin-img" />
+        <p class="odin-text">Odin</p>
+      </div>
+      <div class="img-description">
+        <p class="img-info">Photo by Charles Pickrell</p>
+        <a href="https://unsplash.com/photos/cssvEZacHvQ">
+          <p class="img-info">https://unsplash.com/photos/cssvEZacHvQ</p>
+        </a>
+      </div>
     </div>
-
-    <div class="main-container">
-        <div class="header">
-            <p> This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</p>
+    <div class="form">
+      <div class="form-info">
+        <h1>
+          This is not a real online service! You know you need somthing like
+          this in your life to help you realize your deepest dreams. Sign up
+          <i>now</i> to get started. <br /><br />
+          You <i>know</i> you want to.
+        </h1>
+      </div>
+      <form action="">
+        <h1>Let's do this!</h1>
+        <div class="inputs">
+          <div class="first-name">
+            <input
+              required
+              type="text"
+              class="form-input"
+              id="first-name"
+              placeholder="First Name"
+            />
+            <label for="first-name" class="form-label">First name:</label>
+          </div>
+          <div class="last-name">
+            <input
+              required
+              type="text"
+              class="form-input"
+              id="last-name"
+              placeholder="Last Name"
+            />
+            <label for="last-name" class="form-label">Last name:</label>
+          </div>
         </div>
-        <div class="signup">
-
+        <div class="inputs">
+          <div class="email">
+            <input
+              required
+              type="email"
+              class="form-input"
+              id="email"
+              placeholder="Email"
+            />
+            <label for="email" class="form-label">Email:</label>
+          </div>
+          <div class="phone">
+            <input
+              required
+              type="text"
+              class="form-input"
+              id="phone"
+              placeholder="Phone"
+            />
+            <label for="phone" class="form-label">Phone:</label>
+          </div>
         </div>
+        <div class="inputs">
+          <div class="password">
+            <input
+              required
+              type="password"
+              class="form-input"
+              id="password"
+              placeholder="Password"
+            />
+            <label for="password" class="form-label">Password:</label>
+            <input type="checkbox" id="togglePassword"> Show
+          </div>
+          <div class="confirm-password">
+            <input
+              required
+              type="password"
+              class="form-input"
+              id="confirm-password"
+              placeholder="Confirm Password"
+            />
+            <label for="confirm-password" class="form-label">Confirm Password:</label>
+            <input type="checkbox" id="toggleConfirmPassword"> Show
+          </div>
+        </div>
+        <div class="form-end">
+          <div class="errorMessage"></div>
+          <button class="btn" type="submit">Create Account</button>
+          <h1>Already have an account? <a href="" class="login">Log in</a></h1>
+        </div>
+      </form>
     </div>
-
-</body>
-    <script type="text/javascript" src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
