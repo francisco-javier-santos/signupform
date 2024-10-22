@@ -8,7 +8,7 @@ const toggleConfirmPassword = document.querySelector("#toggleConfirmPassword");
 
 const inputs = [email, phone, password, confirmPassword];
 
-// Limpiar errores cuando el campo recibe el foco
+// Clean errors when field gets focused.
 inputs.forEach((item) => {
   item.addEventListener("focusin", () => {
     errorMessage.textContent = "";
@@ -20,20 +20,21 @@ inputs.forEach((item) => {
   });
 });
 
-// Alternar visibilidad de la contraseña principal
+// Alternate visibility of the password input (from dots to text, like show/hide)
 togglePassword.addEventListener("change", () => {
   password.type = togglePassword.checked ? "text" : "password";
 });
 
-// Alternar visibilidad de la confirmación de contraseña
+// Alternate visibility of the password confirmation input (from dots to text, like show/hide)
 toggleConfirmPassword.addEventListener("change", () => {
   confirmPassword.type = toggleConfirmPassword.checked ? "text" : "password";
 });
 
-// Verificar si las contraseñas coinciden mientras se escriben
+// Verify is passwords match while being typed
 password.addEventListener("input", checkPasswords);
 confirmPassword.addEventListener("input", checkPasswords);
 
+// Function to check if passwords do match.
 function checkPasswords() {
   if (password.value !== confirmPassword.value) {
     password.classList.add("error");
@@ -42,15 +43,15 @@ function checkPasswords() {
   } else {
     password.classList.remove("error");
     confirmPassword.classList.remove("error");
-    errorMessage.textContent = ""; // Limpiar el mensaje de error si coinciden
+    errorMessage.textContent = ""; // Clean error message if focused.
   }
 }
 
-// Validar el formulario cuando se envía
+// Validate from when sent.
 const submit = (e) => {
   e.preventDefault();
 
-  // Verificar si las contraseñas coinciden antes de enviar
+  // Verify is passwords match before being sent.
   if (password.value !== confirmPassword.value) {
     password.classList.add("error");
     confirmPassword.classList.add("error");
@@ -58,18 +59,7 @@ const submit = (e) => {
     return;
   }
 
-  // Validar número de teléfono
-  if (
-    !phone.value.match(
-      /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/
-    )
-  ) {
-    phone.classList.add("error");
-    errorMessage.textContent = "Phone number needs to be exactly 10 numbers";
-    return;
-  }
-
-  // Validar longitud de la contraseña
+  // Validate password length.
   if (password.value.length < 8) {
     password.classList.add("error");
     errorMessage.textContent =
@@ -77,7 +67,7 @@ const submit = (e) => {
     return;
   }
 
-  // Verificar si la contraseña tiene al menos una letra minúscula
+  // Verify if there is at least 1 lower case letter in password.
   if (!password.value.match(/[a-z]/)) {
     password.classList.add("error");
     errorMessage.textContent =
@@ -85,7 +75,7 @@ const submit = (e) => {
     return;
   }
 
-  // Verificar si la contraseña tiene al menos una letra mayúscula
+  // Verify if there is at least 1 upper case letter in password.
   if (!password.value.match(/[A-Z]/)) {
     password.classList.add("error");
     errorMessage.textContent =
@@ -93,22 +83,22 @@ const submit = (e) => {
     return;
   }
 
-  // Verificar si la contraseña tiene al menos un número
+  // Verify if password has at least 1 number.
   if (!password.value.match(/\d+/g)) {
     password.classList.add("error");
     errorMessage.textContent = "Password needs to have at least 1 number.";
     return;
   }
 
-  // Si todas las validaciones son correctas
+  // If all validations are passed, it is a success.
   errorMessage.textContent = "Form added successfully";
   
-  // Reiniciar la página después de 5 segundos
+  // Restart the page after 5 seconds.
   setTimeout(() => {
     window.location.reload();
   }, 5000);
 };
 
-// Escuchar el evento submit del formulario
+// Listen the submit event from the form.
 const form = document.querySelector("form");
 form.addEventListener("submit", submit);
